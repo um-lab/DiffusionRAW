@@ -1,10 +1,11 @@
 
 
-<h1 style="text-align: center; font-weight: bold;">Leveraging Frame Affinity for sRGB-to-RAW Video De-rendering</h1>
+<div style="text-align: center;">
+  <h1>Leveraging Frame Affinity for sRGB-to-RAW Video De-rendering</h1>
+</div>
 
 
-![PDF as Image](./assets/video_raw_motivation.jpg)
-
+<img src="./assets/video_raw_motivation.jpg" alt="示例图片" width="500">
 
 # TODO List
 
