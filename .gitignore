@@ -3,6 +3,5 @@ __pycache__/
 checkpoints*
 pretrain/*
 *.jpg
-*.png
 *.npy
 *.pyc
