@@ -1,5 +1,3 @@
-
-
 <div style="text-align: center;">
   <h1>Leveraging Frame Affinity for sRGB-to-RAW Video De-rendering</h1>
 </div>
@@ -10,9 +8,9 @@
 
 # TODO List
 
-- [x] Dataset Release
-- [x] Model Release
-- [] Code Release
+- [ ] Dataset Release
+- [ ] Model Release
+- [x] Code Release
 
 
 # Installation
