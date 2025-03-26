@@ -9,6 +9,7 @@ def get_logger(args):
     formatted_time = current_time.strftime("%Y_%m_%d_%H_%M_%S_")
 
     log_name = os.path.join(log_path, formatted_time+'log.txt')
+    os.makedirs(os.path.dirname(log_name), exist_ok=True)
 
     logger = logging.getLogger('RawVideo')
     logger.setLevel(logging.INFO)

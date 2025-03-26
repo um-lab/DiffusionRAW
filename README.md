@@ -1,6 +1,7 @@
-<div style="text-align: center;">
-  <h1>Leveraging Frame Affinity for sRGB-to-RAW Video De-rendering(CVPR 2024)</h1>
-</div>
+
+<div align="center">
+  <h1>Leveraging Frame Affinity for sRGB-to-RAW Video De-rendering   (CVPR 2024)</h1>
+
 
 [Chen Zhang](https://scholar.google.com/citations?user=qRcKyw0AAAAJ&hl=zh-CN)<sup>1,\*</sup>
 | [Wencheng Han](https://scholar.google.com/citations?user=hGZueIUAAAAJ&hl=zh-CN&oi=ao)<sup>2,\*</sup>
@@ -13,6 +14,7 @@
 <sup>2</sup> *SKL-IOTSC, CIS, University of Macau*
 
 <sup>*</sup> Equal Contribution. <sup>†</sup> Corresponding Authors.
+</div>
 
 # 🔔 Overview
 ### Hightlights
@@ -34,7 +36,6 @@ task.
 </p>
 
 ### Framework
-Overview of the Proposed Frame Affinity Guided De-rendering Network.
 The framework consists of two main stages:
 1. **Temporal Affinity Prior Extraction:**
 This stage generates a reference RAW image by leveraging motion information between adjacent frames.
@@ -42,33 +43,126 @@ This stage generates a reference RAW image by leveraging motion information betw
 Using the reference RAW as the initial state, a pixel-level mapping function is learned to refine inaccurately predicted pixels from the first stage. This process incorporates guidance from the sRGB image and preceding frames.
 
 <p align="center">
-<img src="./assets/framework.png" alt="dataset" width="600">
+<img src="./assets/framework.png" alt="dataset" width="800">
 </p>
 
 # ⏰ TODO List
 
 - [ ] Dataset Release
-- [ ] Model Release
+- [x] Model Release
 - [x] Code Release
 
 
 # 🔧 Installation
 Our model does not use any hard-to-configure packages. You only need to install torch and some simple dependencies (such as numpy, cv2). By the way, we use pytorch 1.3 to implement the proposed method.
+```
+# git clone this repository
+git clone https://github.com/zhangchen98/RAW_CVPR24.git
+cd RAW_CVPR24
+
+# create an environment
+conda create -n videoRaw python=3.8
+conda activate videoRaw
+pip install -r requirements.txt
+```
 
 # 📁 Dataset
 
 
 # 🔥Training
-You can amend the startup script in 'scripts' folder to run our method. 
 
+**Train the model on the RVD-Part1 dataset:**
 ```
-sh scripts/RVD_Part1.sh
-sh scripts/RVD_Part2.sh
+python3 -u main.py \
+--trainset_root='./RVD/Part1/train' \
+--testset_root='./RVD/Part1/test' \
+--input_size="900,1600" \
+--save_dir='./checkpoints/RVD_Part1' \
+--batch_size=2 \
+--test_freq=20 \
+--patch_size=256 \
+--load_from='' \
+--port=12355 \
+--max_epoch=60 \
+--num_worker=8 \
+--init_lr=0.002 \
+--lr_decay_epoch=20 \
+--aux_loss_weight=0.5 \
+--ssim_loss_weight=1.0 \
+--local
 ```
+**Train the model on the RVD-Part2 dataset:**
+```
+python3 -u main.py \
+--trainset_root='./RVD/Part2/train' \
+--testset_root='./RVD/Part2/test' \
+--input_size="640,1440" \
+--save_dir='./checkpoints/RVD_Part2' \
+--batch_size=2 \
+--test_freq=20 \
+--patch_size=256 \
+--load_from='' \
+--port=12347 \
+--max_epoch=60 \
+--num_worker=8 \
+--init_lr=0.002 \
+--lr_decay_epoch=20 \
+--aux_loss_weight=0.5 \
+--ssim_loss_weight=1.0 \
+--local \
+```
+You can also amend the startup script in 'scripts' folder to use multi-GPU training. 
 
 # ⚡ Checkpoints and Inference
+1. Download the pretrained models (RVD_Part1.pth, RVD_Part2.pth) from [BaiduYun](https://pan.baidu.com/s/1wBTyalAq_k-nBXpMsWuBYQ) (Verification Code: axh6).
+2. Put the pretrained models in the 'pretrain' folder.
 
-
+3. Run the test script:
+```
+# test on RVD-Part1
+python3 -u main.py \
+--trainset_root='./RVD/Part1/train' \
+--testset_root='./RVD/Part1/test' \
+--input_size="900,1600" \
+--save_dir='./checkpoints/RVD_Part1' \
+--batch_size=8 \
+--test_freq=20 \
+--patch_size=256 \
+--load_from='./pretrain/RVD_Part1.pth' \
+--port=12355 \
+--max_epoch=60 \
+--num_worker=8 \
+--init_lr=0.002 \
+--lr_decay_epoch=20 \
+--aux_loss_weight=0.5 \
+--ssim_loss_weight=1.0 \
+--local \
+--test_only \
+# --save_predict_raw  # add this option to save the predicted raw images
+```
+```
+# test on RVD-Part2
+python3 -u main.py \
+--trainset_root='./RVD/Part2/train' \
+--testset_root='./RVD/Part2/test' \
+--input_size="640,1440" \
+--save_dir='./checkpoints/RVD_Part2' \
+--batch_size=8 \
+--test_freq=20 \
+--patch_size=256 \
+--load_from='./pretrain/RVD_Part2.pth' \
+--port=12347 \
+--max_epoch=60 \
+--num_worker=8 \
+--init_lr=0.002 \
+--lr_decay_epoch=20 \
+--aux_loss_weight=0.5 \
+--ssim_loss_weight=1.0 \
+--local \
+--test_only \
+# --save_predict_raw # add this option to save the predicted raw images
+```
+You can find the testing results in the `./checkpoints/RVD_Part1` and `./checkpoints/RVD_Part2` directories.
 # 🥰 Acknowledgements
 Our dataset contains part of the data from Real-RawVSR Dataset(https://github.com/zmzhang1998/Real-RawVSR), thanks to the excellent work of Yue et al.
 
