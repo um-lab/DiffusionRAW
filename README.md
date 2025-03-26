@@ -67,9 +67,38 @@ pip install -r requirements.txt
 ```
 
 # 📁 Dataset
-
-
+You can download our RVD dataset from [here]. Then put the dataset into the folder `./RVD`.
+```
+RVD
+├── Part1
+│   ├── test
+│   │   ├── data.json
+│   │   ├── DNG
+│   │   ├── flow
+│   │   ├── RAW
+│   │   ├── sRGB
+│   │   └── tags.json
+│   └── train
+│       ├── data.json
+│       ├── DNG
+│       ├── flow
+│       ├── RAW
+│       └── sRGB
+└── Part2
+    ├── test
+    │   ├── data.json
+    │   ├── flow
+    │   ├── RAW
+    │   └── sRGB
+    └── train
+        ├── data.json
+        ├── flow
+        ├── RAW
+        └── sRGB
+```
+For both subsets, we provide optical flow data using the [unimatch](https://github.com/autonomousvision/unimatch) method. In addition, we also provide the original '.DNG' data for RVD-Part1.
 # 🔥Training
+Since different camera ISP pipelines are specific, we train the  derendering model on each sub-dataset separately.
 
 **Train the model on the RVD-Part1 dataset:**
 ```

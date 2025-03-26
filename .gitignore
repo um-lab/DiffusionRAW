@@ -4,3 +4,4 @@ checkpoints*
 pretrain/*
 *.npy
 *.pyc
+RVD/*
