@@ -48,7 +48,7 @@ Using the reference RAW as the initial state, a pixel-level mapping function is 
 
 # ⏰ TODO List
 
-- [ ] Dataset Release
+- [x] Dataset Release
 - [x] Model Release
 - [x] Code Release
 
@@ -67,7 +67,16 @@ pip install -r requirements.txt
 ```
 
 # 📁 Dataset
-You can download our RVD dataset from [here]. Then put the dataset into the folder `./RVD`.
+You can download our RVD dataset from [here](https://pan.baidu.com/s/1AvVtDYRnO0hJnLPkKoM_JA)(code: dk5h). Then put the dataset into the folder `./RVD`.
+
+🚩 If you have trouble unzipping, you can use the following command:
+```
+sudo apt update
+sudo apt install p7zip-full
+7z x RVD.zip
+```
+
+The folder structure is as follows:
 ```
 RVD
 ├── Part1
