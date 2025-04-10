@@ -70,7 +70,7 @@ pip install -r requirements.txt
 You can download our RVD dataset from [here](https://pan.baidu.com/s/1AvVtDYRnO0hJnLPkKoM_JA)(code: dk5h). Then put the dataset into the folder `./RVD`.
 
 🚩 If you have trouble unzipping, you can use the following command:
-```
+```bash
 sudo apt update
 sudo apt install p7zip-full
 7z x RVD.zip
@@ -110,7 +110,7 @@ For both subsets, we provide optical flow data using the [unimatch](https://gith
 Since different camera ISP pipelines are specific, we train the  derendering model on each sub-dataset separately.
 
 **Train the model on the RVD-Part1 dataset:**
-```
+```bash
 python3 -u main.py \
 --trainset_root='./RVD/Part1/train' \
 --testset_root='./RVD/Part1/test' \
@@ -130,7 +130,7 @@ python3 -u main.py \
 --local
 ```
 **Train the model on the RVD-Part2 dataset:**
-```
+```bash
 python3 -u main.py \
 --trainset_root='./RVD/Part2/train' \
 --testset_root='./RVD/Part2/test' \
@@ -156,7 +156,7 @@ You can also amend the startup script in 'scripts' folder to use multi-GPU train
 2. Put the pretrained models in the './pretrain' folder.
 
 3. Run the test script:
-```
+```bash
 # test on RVD-Part1
 python3 -u main.py \
 --trainset_root='./RVD/Part1/train' \
@@ -178,7 +178,7 @@ python3 -u main.py \
 --test_only \
 # --save_predict_raw  # add this option to save the predicted raw images
 ```
-```
+```bash
 # test on RVD-Part2
 python3 -u main.py \
 --trainset_root='./RVD/Part2/train' \
