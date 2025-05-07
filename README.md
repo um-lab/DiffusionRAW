@@ -1,19 +1,15 @@
 
 <div align="center">
-  <h1>Leveraging Frame Affinity for sRGB-to-RAW Video De-rendering   (CVPR 2024)</h1>
+  <h1>Reconstructing High Quality Raw Video using Temporal Affinity and Diffusion Prior </h1>
 
 
-[Chen Zhang](https://scholar.google.com/citations?user=qRcKyw0AAAAJ&hl=zh-CN)<sup>1,\*</sup>
-| [Wencheng Han](https://scholar.google.com/citations?user=hGZueIUAAAAJ&hl=zh-CN&oi=ao)<sup>2,\*</sup>
-| Yang Zhou<sup>1</sup>
-| [Jianbing Shen](https://scholar.google.com/citations?user=_Q3NTToAAAAJ&hl=zh-CN&oi=ao)<sup>2,†</sup>
-| [Cheng-zhong Xu](https://scholar.google.com/citations?user=XsBBTUgAAAAJ&hl=zh-CN&oi=ao)<sup>2</sup>
-| [Wentao Liu](https://scholar.google.com/citations?user=KZn9NWEAAAAJ&hl=zh-CN&oi=ao)<sup>1,†</sup>
+[Wencheng Han](https://scholar.google.com/citations?user=hGZueIUAAAAJ&hl=zh-CN&oi=ao)
+| [Jianbing Shen](https://scholar.google.com/citations?user=_Q3NTToAAAAJ&hl=zh-CN&oi=ao)
+| [David J. Crandall](https://scholar.google.com/citations?hl=zh-CN&user=8bQRH5YAAAAJ&view_op=list_works&sortby=pubdate)
+| [Cheng-zhong Xu](https://scholar.google.com/citations?user=XsBBTUgAAAAJ&hl=zh-CN&oi=ao)
 
-<sup>1</sup> *SenseTime Research and Tetras.AI*, 
-<sup>2</sup> *SKL-IOTSC, CIS, University of Macau*
+*SKL-IOTSC, CIS, University of Macau*
 
-<sup>*</sup> Equal Contribution. <sup>†</sup> Corresponding Authors.
 </div>
 
 # 🔔 Overview
